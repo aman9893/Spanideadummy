@@ -1,0 +1,18 @@
+<div class="container=fuild">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="main_header_title"> Library System </span>
+      <div class="search_librarycontainer">
+        <form>
+          <input type="text" (input)="eventHandler($event)" id="search_bar" autocomplete="off" placeholder="Search">
+          <span class="search_library_bar_icon">
+            <i class="material-icons">search </i>
+          </span>
+        </form>
+      </div>
+      <span class="example-spacer"></span>
+      <mat-icon class="icon_value">laptop</mat-icon>
+      <span routerLinkActive="active" routerLink="/dashboard" class="icon_text"> Admin DashBoard </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  </div>

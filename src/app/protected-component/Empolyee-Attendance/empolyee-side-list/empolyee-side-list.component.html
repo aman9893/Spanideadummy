@@ -1,0 +1,55 @@
+<div class="container-fuild">
+    <mat-toolbar class="emp_side_header">
+      <mat-toolbar-row>
+        <span class="main_header_title"> Employee Attendence  </span>
+        <div class="search_librarycontainer">
+          <form>
+            <input type="text" id="search_bar" [(ngModel)]="term"  name="searchString"  placeholder="Search">
+            <span class="search_library_bar_icon">
+              <i class="material-icons">search </i>
+            </span>
+          </form>
+        </div>
+        <span class="example-spacer"></span>
+        <mat-icon class="icon_value">laptop</mat-icon>
+        <span routerLinkActive="active" routerLink="/dashboard" class="icon_text"> Admin DashBoard </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    </div>
+  
+<div class="container-fuild task_tabel_wrapper" >
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th> No</th>
+        <th> Name</th>
+        <th> Email</th>
+        <th> Phone</th>
+        <th>Designation</th>
+        <th> Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tr_table" *ngFor="let empData of emplist |filter:term let myIndex = index;">
+        <td> {{myIndex+1}}</td>
+        <td> {{empData.prefix}}{{empData.first_name}} {{empData.last_name}}</td>
+        <td>{{empData.email}}</td>
+        <td>{{empData.phone}}</td>
+        <td>{{empData.emp_title}}</td>
+
+        <td  class="example_section"> <section>
+          <mat-slide-toggle
+              class="example-margin"
+              [color]="color"
+              [(ngModel)]=empData.emp_live_status 
+              [checked]="checked"
+              [disabled]="disabled"
+               (change)="ChangeStatus($event,empData)">
+          </mat-slide-toggle>
+        </section>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

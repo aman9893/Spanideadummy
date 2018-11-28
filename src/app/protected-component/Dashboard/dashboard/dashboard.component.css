@@ -1,0 +1,163 @@
+.btn_details{
+    float: right;
+    padding: 6px;
+    margin: 19px;
+    padding-right: 21px;
+    padding-left: 18px;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    border: 1px solid;
+    opacity: 0.7;
+}
+.btn_details:hover{
+    opacity: 0.8;
+} 
+.warrper_dashbord1{
+    float: left;
+    width: 100%;
+}
+
+.dash_cantainer2{
+    margin-top: 30px;
+    min-height: 413px;
+    /* margin-left: 80px; */
+    margin-bottom: 30px;
+    box-shadow: 3px 2px 5px 4px #DEE2E7;
+}
+.dash_cantainer3{
+    float: left;
+    width: 100%;
+    min-height: 400px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.box_catniner{
+    background: #e9ecef;
+    margin-top: 30px;
+    min-height: 413px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+}
+
+.box_header{
+    font-size: 19px;
+    padding: 18px;
+    float: left;
+    font-family: poppinsnor;
+}
+.box_subtext{
+    float: right;
+    color: #1976d2;
+    padding-top: 28px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.recent_people_info{
+    float: left;
+    width: 100%;
+    position: relative;
+    padding-left: 13px;
+}
+
+.recent_people_img{
+    height: 50px;
+    width: 50px;
+    background: #007bff;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    float: left;
+}
+
+.recent_people_text{
+    font-size: 17px;
+    font-family: Poplight2;
+}
+
+.recent_people_subtext{
+    font-size: 12px;
+    font-family: poppinsnor;
+}
+
+.wrpper_text_title{
+    position: absolute;
+    left: 77px;
+    float: left;
+    top: 2px;
+}
+.tabel_wrapper_data{
+    margin: 23px;
+    max-width: 1351px;
+    background: #e9ecef5e;
+}
+.tabel_wrapper_data th{
+    padding: 14px;
+    padding-left: 30px;
+    /* font-family: poppinsnor; */
+    /* border-bottom: 2px solid #1b5895; */
+}
+.tabel_wrapper_data td{
+    padding: 14px;
+    padding-left: 30px;
+    font-family: poppinsnor;
+    /* border-bottom: 2px solid #1b5895; */
+}
+.box_header_tabel{
+    float: left;
+    width: 100%;
+    margin-left: 27px;
+    font-family: poppinsnor;
+    margin-top: 19px;
+    color: #0101039c;
+    font-size: 20px;
+}
+
+.warrper_dashbord3{
+    float: left;
+    width: 100%;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.29);
+    margin-top: 10px;
+}
+
+.wrapper_cards_box2{
+    min-width: 297px;
+    min-height: 200px;
+    margin: 21px;
+    border-radius: 0px !important;
+    color: white;
+}
+
+.wrapper_cards_total_project{
+    min-width: 297px;
+    min-height: 200px;
+    margin: 21px;
+    border-radius: 0px !important
+}
+
+.wrapper_cards_box2_header{
+    text-align: center;
+    margin-top: 45px;
+    font-size: 21px;
+    font-family: poppinsnor;
+}
+.wrapper_cards_box2_header span mat-icon{
+    margin-right: 19px;
+    font-size: 37px;
+}
+
+#total_project{
+    background: #663399a1;
+}
+#total_Punch{
+    background: #317e00a1;
+}
+#total_Punchout{
+    background: #b62318b5;
+}
+#total_employee{
+    background: #6c757d;
+}

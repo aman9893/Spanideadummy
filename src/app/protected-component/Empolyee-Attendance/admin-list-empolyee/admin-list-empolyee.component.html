@@ -1,0 +1,42 @@
+<app-header-admin></app-header-admin>
+<div class="container-fuild task_tabel_wrapper" >
+  <div class="table-responsive">
+
+  <table class="table table-hover">
+    <thead class="thead-responsive">
+      <tr>
+        <th> No</th>
+        <th> Name</th>
+        <th> Email</th>
+        <th> Phone</th>
+        <th>Designation</th>
+        <th> In/out Status</th>
+        <th> In Time</th>
+        <th> Out Time</th>
+        <th> total time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="emplist_tr" *ngFor="let empData of emplist  let myIndex = index;" (click)="detailsEmpolyee(empData)" >
+        <td>{{myIndex+1}}</td>
+        <td> {{empData.prefix}}{{empData.first_name}} {{empData.last_name}}</td>
+        <td>{{empData.email}}</td>
+        <td>{{empData.phone}}</td>
+        <td>{{empData.emp_title}}</td>
+
+        <td *ngIf="empData.emp_live_status === 1"  >
+          <button class="true_status" mat-mini-fab color="primary"></button>
+        </td>
+
+        <td *ngIf="empData.emp_live_status === 0"  >
+          <button class="false_status_btn" mat-mini-fab color="warn"></button>
+        </td>
+        <td>{{empData.in_time | date:'shortTime'}}</td>
+        <td>{{empData.out_time  | date:'shortTime'}}</td>
+        <td>{{empData.total_time}} minutes</td>
+      </tr>
+    </tbody>
+  </table>
+      
+</div>
+</div>

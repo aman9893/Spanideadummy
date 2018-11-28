@@ -1,0 +1,51 @@
+<h1 mat-dialog-title> ADD EMPOLYEE DOCUMENT </h1>
+<div [formGroup]="empAddForm" novalidate>
+  <mat-dialog-content>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Last Company Name" formControlName="last_company_name">
+      <!-- <mat-error *ngIf="blogAddForm['controls'].task_name.invalid">{{getError()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Total Experience" formControlName="total_experience">
+      <!-- <mat-error *ngIf="blogAddForm['controls'].task_name.invalid">{{getError()}}</mat-error> -->
+    </mat-form-field>
+
+
+    <div class="image_upload">
+      <input type="file" formControlName="profile" (change)="fileChangeEvent($event)" placeholder="Upload Adhar card" />
+      <button mat-raised-button type="button" class="input_file" (click)="upload()">Upload</button>
+    </div>
+
+    
+    <div class="image_upload">
+      <input type="file" formControlName="profile" (change)="fileChangeEvent($event)" placeholder="Pan card" />
+      <button mat-raised-button type="button" class="input_file" (click)="upload()">Upload</button>
+    </div>
+
+    <div class="image_upload">
+      <input type="file" formControlName="profile" (change)="fileChangeEvent($event)" placeholder="Experience latter" />
+      <button mat-raised-button type="button" class="input_file" (click)="upload()">Upload</button>
+    </div>
+
+
+
+
+  </mat-dialog-content>
+
+  <div *ngIf="this.update_data.flag === 'save' " class="both_btn">
+    <div class="Modal_delete_footer">
+      <button mat-stroked-button color="warn" (click)="cancel('Cancel')" class="cancle_deelete_button">Cancel</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!empAddForm.valid" (click)="onSubmit()"
+        class="uppercase_button">Save</button>
+    </div>
+  </div>
+  <div *ngIf="updateFlag === true " class="both_btn">
+    <div class="Modal_delete_footer">
+      <button mat-stroked-button color="warn" (click)="cancel('Cancel')" class="cancle_deelete_button">Cancel</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!empAddForm.valid" (click)="onUpdate()"
+        class="uppercase_button">Update</button>
+    </div>
+  </div>
+</div>

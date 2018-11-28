@@ -1,0 +1,455 @@
+<app-emp-management-header></app-emp-management-header>
+
+<div class="details_wrapper" *ngFor="let emp of Empolyeelist">
+  <mat-toolbar class="empolyee_header">
+    <mat-toolbar-row>
+      <span class="main_header_title">
+        <div class="back_icon" (click)="goBack()">
+          <i class="material-icons"> arrow_back</i>
+        </div>
+      </span>
+      <span class="example-spacer"></span>
+      <button class="icons_call_details" mat-icon-button>
+        <mat-icon (click)="openPhone()">call</mat-icon>
+      </button>
+      <button class="icons_call_details" mat-icon-button>
+        <mat-icon (click)="openEmail()">email</mat-icon>
+      </button>
+      <button class="icons_call_details" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <div>
+        <mat-menu dir="Right" #menu="matMenu" xPosition="before" yPosition="below" [overlapTrigger]="false">
+          <button (click)="deleteEmpoyee()" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span class="sort_delete_menu_list_item">Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab label="Profile">
+      <mat-card class="profile_wrapper">
+        <div class="row ">
+          <div class="col-md-3">
+            <div class="profile-img">
+              <img mat-card-image class="image_url" src="{{env.myVarForImageURLS}}{{emp.profile}}" alt="{{emp.profile}}">
+              <div class="file btn btn-lg btn-primary">
+                Change Photo
+                <input type="file" name="file" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <mat-toolbar>
+              <button class="perofile_btn" mat-raised-button color="primary"> {{emp.prefix}} {{emp.first_name }}
+                {{emp.middle_name}} {{emp.last_name}}</button>
+              <button class="perofile_btn" mat-raised-button color="primary"> {{emp.emp_title}}</button>
+              <div class="back_icon" (click)="editEmpoyee()">
+                <i class="material-icons"> edit</i>
+              </div>
+            </mat-toolbar>
+            <div class="wrapper_salary">
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Employee Unique Id </label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.emp_unique_id}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Email</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.email}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Phone</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.phone}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>address</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.address}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Notes</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.imp_notes}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Gender</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p *ngIf="emp.gendar === '1' ">Male</p>
+                  <p *ngIf="emp.gendar === '2' ">Female</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Department</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.emp_department}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Employee Description</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.emp_description}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 profile_label">
+                  <label>Date Of Birth</label>
+                </div>
+                <div class="col-md-6 profile_value">
+                  <p>{{emp.date_of_birth | date}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Document">
+      <mat-toolbar>
+        <button class="perofile_btn" (click)="addDocumentDialog()" mat-raised-button color="primary">Add Document</button>
+      </mat-toolbar>
+      <div class="wrapper_salary">
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>Addar Number</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.addar_number}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>joining Date</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.joing_date | date }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>Pancard Number</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>Last Company Name</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.joing_date | date }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>Total Experience</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.joing_date | date }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>Expert KeySkill</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label>Last Salary</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Salary">
+      <mat-toolbar> Empolyee Salary
+        <button class="perofile_btn" (click)="addSalaryDialog()" mat-raised-button color="primary">Add Salary</button>
+      </mat-toolbar>
+    </mat-tab>
+
+
+    <mat-tab label="Academic">
+      <mat-toolbar>
+        <button class="perofile_btn" mat-raised-button color="primary">Add Acedmic Info </button>
+      </mat-toolbar>
+      <div class="wrapper_salary">
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label> 10th Percentage </label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.addar_number}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label> 12th Percentage</label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.joing_date | date }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label> Degree Name </label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label> Degree Percentage </label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label> Other Qualification </label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 profile_label">
+            <label> Diploma/training </label>
+          </div>
+          <div class="col-md-6 profile_value">
+            <p>{{emp.pan_number}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  
+  <div class="container-fuild">
+    
+  
+  </div>
+  <mat-card class="matcrad_wrapper">
+    <div class="container-fuild emp-profile" *ngFor="let emp of Empolyeelist">
+      <form method="post">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="profile-img">
+              <img mat-card-image class="image_url" src="{{env.myVarForImageURLS}}{{emp.profile}}" alt="{{emp.profile}}">
+              <div class="file btn btn-lg btn-primary">
+                Change Photo
+                <input type="file" name="file" />
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <div class="profile-head">
+              <h5 class="title_name">
+                {{emp.prefix}} {{emp.first_name}} {{emp.middle_name}} {{emp.last_name}}
+              </h5>
+              <h6>
+                Web Developer and Designer
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+  
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Personal</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="salary-tab" data-toggle="tab" href="#salary" role="tab" aria-controls="salary" aria-selected="false">Document</a>
+                </li>
+              </ul>
+          <div class="col-md-4">
+            <div class="profile-work">
+  
+              <button class="perofile_btn" mat-raised-button color="primary">Add Salary</button>
+  
+              <button class="perofile_btn" mat-raised-button color="primary">Edit Profile</button>
+  
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="tab-content profile-tab" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>User Id</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>Kshiti123</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Name</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p> {{emp.prefix}} {{emp.first_name}} {{emp.middle_name}}{{emp.last_name}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Email</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.email}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Phone</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.phone}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>address</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.address}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Notes</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.imp_notes}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Gender</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.gendar}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Total Projects</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>230</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>English Level</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>Expert</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Availability</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>6 months</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="tab-pane fade " id="salary" role="tabpanel" aria-labelledby="salary-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>joining Date</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.joing_date}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Addar Number</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.addar_number}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Pan Number</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{emp.pan_number}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card> -->

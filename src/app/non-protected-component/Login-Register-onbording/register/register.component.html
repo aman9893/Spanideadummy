@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="logo_company_header">Office Management <span class="three_five"> 395</span> </span>
+    <span class="example-spacer"></span>
+
+    <mat-icon class="icon_value">laptop</mat-icon>
+    <span routerLinkActive="active" routerLink="/login" class="icon_text"> Login </span>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="login_window">
+
+  <div class="form_container_wrapper">
+    <mat-card [formGroup]="sginupForm" novalidate>
+      <div class="change_company_header">
+        <span class="logo_company_header">Office Management <span class="three_five"> 395</span> </span>
+      </div>
+      <mat-form-field class="form_container">
+        <input matInput formControlName="name" placeholder="Name">
+      </mat-form-field>
+
+      <mat-form-field class="form_container">
+        <input type="email" matInput formControlName="email" placeholder="Email">
+      </mat-form-field>
+
+      <mat-form-field class="form_container">
+        <input type="password" matInput formControlName="password" placeholder="Password">
+      </mat-form-field>
+
+      <div class="form_container_btn_wrapper">
+        <span class="form_container_btn" routerLinkActive="active" routerLink="../login"> Login </span>
+        <button type="submit" [disabled]="!sginupForm.valid" (click)="onSubmit()" mat-stroked-button color="primary"> Register </button>
+      </div>
+      <div class="resgiter_btn">
+        <button class="resgiter_btn1" mat-raised-button (click)="signInWithFB()" color="primary">Login With Facebook</button>
+        <button mat-raised-button (click)="signInWithGoogle()" color="warn">Login With Google</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<!-- 
+<div class=" card_wrapper jumbotron bg-transparent text-center">
+  <div *ngIf="!user" class="card text-center">
+    <h6 class="card-header card_custom_header">
+      ThirdRock Login 
+    </h6>
+    <div class="card-block">
+      <p class="card-text card_custom_text">Sign in with <br>
+        <span class="google_text">Google</span> & <span  class="facebook_text">Facebook</span></p>
+    </div>
+    <div class="card-block">
+      <button class="btn btn-danger google_login" (click)="signInWithGoogle()">
+        <span class="fa fa-google"></span>
+      </button>
+      <button class="btn facebook_login " (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
+    </div>
+  </div>
+  <div *ngIf="user" class="card text-center">
+    <h6 class="card-header card_custom_header">
+      Welcome To ThirdRock
+    </h6>
+    <div class="card-block"></div>
+    <img class="img_custom" src="{{ user.photoUrl }}">
+    <div class="card-block">
+      <h4 class="card-title card_custom_text">{{ user.name }}</h4>
+      <p class="card-text card_custom_text">{{ user.email }}</p>
+    </div>
+    <div class="card-block">
+      <button class="btn btn-danger" (click)="signOut()">Log out</button>
+    </div>
+  </div>
+</div> -->

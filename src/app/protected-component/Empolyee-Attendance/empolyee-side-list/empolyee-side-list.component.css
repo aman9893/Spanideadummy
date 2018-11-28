@@ -1,0 +1,26 @@
+.task_tabel_wrapper {
+    border: none;
+    font-size: 17px;
+    border-top: 2px solid #007bff1c;
+    cursor: pointer;
+    background: black;
+    color: #f8f9faf2;
+    border-top: 1px solid #dee2e629;
+}
+.table thead th {
+    border-top: 1px solid #dee2e629;;
+}
+.emp_side_header{
+    background: #212529;
+    color: white;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #212529;
+}
+
+.task_tabel_wrapper .table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #2125299e;
+}

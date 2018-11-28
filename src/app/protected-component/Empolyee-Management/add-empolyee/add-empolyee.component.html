@@ -1,0 +1,103 @@
+<h1 mat-dialog-title> ADD EMPOLYEE INFORMATION </h1>
+<div [formGroup]="empAddForm" novalidate>
+  <mat-dialog-content>
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="prefix" formControlName="prefix">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="First Name" formControlName="first_name">
+      <!-- <mat-error *ngIf="blogAddForm['controls'].task_name.invalid">{{getError()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Middle name" formControlName="middle_name">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Last Name" formControlName="last_name">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Date of birth" type="readonly" [matDatepicker]="picker2" formControlName="dateOfbirth"
+        placeholder="date of birth">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Email Address" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input type="number" matInput placeholder="Phone Number" formControlName="phone_number">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Address" formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Important Notes" formControlName="imp_notes">
+    </mat-form-field>
+
+
+    <mat-form-field class="form_feild">
+      <input type="number" matInput placeholder="Addhar number" formControlName="addhar_number">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input type="number" matInput placeholder="PanCard number" formControlName="pancard_number">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput type="readonly" [matDatepicker]="picker" formControlName="joing_date" placeholder="Joing Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="description" formControlName="emp_description">
+    </mat-form-field>
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Title" formControlName="emp_title">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Department" formControlName="emp_department">
+    </mat-form-field>
+
+    <mat-form-field class="form_feild">
+      <input matInput placeholder="Employee Unique Id" formControlName="emp_unique_id">
+    </mat-form-field>
+
+
+    <mat-radio-group formControlName="gendar">
+      <mat-radio-button class="form_feild_gendar" value="1">Male</mat-radio-button>
+      <mat-radio-button class="form_feild_gendar" value="2">Female</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="image_upload">
+      <input type="file" formControlName="profile" (change)="fileChangeEvent($event)" placeholder="Upload profile Image" />
+      <button mat-raised-button type="button" class="input_file" (click)="upload()">Upload</button>
+      <div class="setting_description">We support JPEGs or PNGs up to 1MB. We recommend using a 400 x 400 pixel image.</div>
+    </div>
+
+  </mat-dialog-content>
+
+  <div *ngIf="this.update_data.flag === 'save' " class="both_btn">
+    <div class="Modal_delete_footer">
+      <button mat-stroked-button color="warn" (click)="cancel('Cancel')" class="cancle_deelete_button">Cancel</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!empAddForm.valid" (click)="onSubmit()"
+        class="uppercase_button">Save</button>
+    </div>
+  </div>
+  <div *ngIf="updateFlag === true " class="both_btn">
+    <div class="Modal_delete_footer">
+      <button mat-stroked-button color="warn" (click)="cancel('Cancel')" class="cancle_deelete_button">Cancel</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!empAddForm.valid" (click)="onUpdate()"
+        class="uppercase_button">Update</button>
+    </div>
+  </div>
+</div>
