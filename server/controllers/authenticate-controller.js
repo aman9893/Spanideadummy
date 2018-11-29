@@ -18,9 +18,15 @@ module.exports.authenticate = function (req, res) {
 
       if (results.length > 0) {
         if (password == results[0].password) {
+         
+          var NewData=JSON.stringify(results[0]);
+          console.log(NewData)
+
           res.json({
+
             status: true,
             token: token,
+            data:NewData,
             message: 'successfully authenticated'
           })
         } else {

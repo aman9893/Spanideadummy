@@ -1,25 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup,  FormControl, Validators, FormBuilder } from '@angular/forms';
-import { DataService } from'../../../service/data.service';
+import { NgForm, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { DataService } from '../../../service/data.service';
 import { ViewEncapsulation } from '@angular/core';
-import {  MatSnackBar } from '@angular/material';
-import {Router} from '@angular/router';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 import { MyauthService } from '../../../Auth-service/authservice';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userData: any;
   constructor(
-    private formBuilder: FormBuilder, private dataService: DataService,
-  private snackBar: MatSnackBar,public router: Router,private authService: MyauthService) { }
+    private formBuilder: FormBuilder, private dataService: DataService, public cookieService: CookieService,
+    private snackBar: MatSnackBar, public router: Router, private authService: MyauthService) { }
 
   loginForm: FormGroup;
 
+  cookieValue = 'UNKNOWN';
+
   ngOnInit() {
     this.createForm();
+ 
   }
 
   private createForm() {
@@ -42,7 +48,7 @@ export class LoginComponent implements OnInit {
       panelClass: ['app-bottom-snackbar']
     });
   }
-  
+
   getError() {
     return ' *This is required feild'
   }
@@ -57,23 +63,33 @@ export class LoginComponent implements OnInit {
       this.dataService.loginData(this.loginForm.value).subscribe(
         data => this.closeDialog(data),
         err => console.log(err)
-      )}
-      this.loginForm.reset();
+      )
+    }
+    this.loginForm.reset();
   }
 
   closeDialog(data) {
     console.log(data)
-    if(data.status === true){
+    if (data.status === true) {
+      this.userData=data.data
+      console.log(this.userData)
+
       this.authService.sendToken(data.token)
-      this.router.navigate(['/dashbord']);
 
+      this.cookieService.set('usersinfo', data.data);
+    
+      this.router.navigate(['/dashboard']);
       this.openSnackBar(data.message, 'Dissmiss')
+
+      this.cookieValue = this.cookieService.get('usersinfo');
+
+      console.log(this.cookieValue )
 
     }
 
-    if(data.status ===false){
+    if (data.status === false) {
       this.openSnackBar(data.message, 'Dissmiss')
     }
-     console.log(data.messsage)
+    console.log(data.messsage)
   }
 }

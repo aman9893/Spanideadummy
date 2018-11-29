@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span class="logo_company_header">Office Management <span class="three_five"> 395</span> </span>
+    <span class="logo_company_header">Span  <span class="three_five"> idea</span> </span>
     <span class="example-spacer"></span>
 
     <mat-icon class="icon_value">laptop</mat-icon>
@@ -13,7 +13,7 @@
   <div class="form_container_wrapper">
     <mat-card [formGroup]="sginupForm" novalidate>
       <div class="change_company_header">
-        <span class="logo_company_header">Office Management <span class="three_five"> 395</span> </span>
+        <span class="logo_company_header">Span <span class="three_five"> idea</span> </span>
       </div>
       <mat-form-field class="form_container">
         <input matInput formControlName="name" placeholder="Name">
@@ -31,10 +31,10 @@
         <span class="form_container_btn" routerLinkActive="active" routerLink="../login"> Login </span>
         <button type="submit" [disabled]="!sginupForm.valid" (click)="onSubmit()" mat-stroked-button color="primary"> Register </button>
       </div>
-      <div class="resgiter_btn">
+      <!-- <div class="resgiter_btn">
         <button class="resgiter_btn1" mat-raised-button (click)="signInWithFB()" color="primary">Login With Facebook</button>
         <button mat-raised-button (click)="signInWithGoogle()" color="warn">Login With Google</button>
-      </div>
+      </div> -->
     </mat-card>
   </div>
 </div>

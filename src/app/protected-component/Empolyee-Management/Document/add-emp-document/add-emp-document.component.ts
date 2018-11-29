@@ -52,21 +52,6 @@ export class AddEmpDocumentComponent implements OnInit {
 
     if (this.updateValue !== undefined) {
       this.empAddForm.controls['first_name'].setValue(this.updateValue.first_name)
-      this.empAddForm.controls['prefix'].setValue(this.updateValue.prefix)
-      this.empAddForm.controls['dateOfbirth'].setValue(new Date(this.updateValue.date_of_birth))
-      this.empAddForm.controls['joing_date'].setValue(new Date(this.updateValue.joing_date))
-      this.empAddForm.controls['email'].setValue(this.updateValue.email)
-      this.empAddForm.controls['emp_department'].setValue(this.updateValue.emp_department)
-      this.empAddForm.controls['emp_description'].setValue(this.updateValue.emp_description)
-      this.empAddForm.controls['emp_title'].setValue(this.updateValue.emp_title)
-      this.empAddForm.controls['gendar'].setValue(this.updateValue.gendar)
-      this.empAddForm.controls['imp_notes'].setValue(this.updateValue.imp_notes)
-      this.empAddForm.controls['last_name'].setValue(this.updateValue.last_name)
-      this.empAddForm.controls['middle_name'].setValue(this.updateValue.middle_name)
-      this.empAddForm.controls['pancard_number'].setValue(this.updateValue.pan_number)
-      this.empAddForm.controls['phone_number'].setValue(this.updateValue.phone)
-      this.empAddForm.controls['address'].setValue(this.updateValue.address)
-      this.empAddForm.controls['addhar_number'].setValue(this.updateValue.addar_number)
     }
   }
 
@@ -134,22 +119,6 @@ export class AddEmpDocumentComponent implements OnInit {
       console.log(this.imageUpload)
       let empAddFormData = {
         prefix: this.empAddForm.controls['prefix'].value,
-        first_name: this.empAddForm.controls['first_name'].value,
-        middle_name: this.empAddForm.controls['middle_name'].value,
-        last_name: this.empAddForm.controls['last_name'].value,
-        date_of_birth: this.empAddForm.controls['dateOfbirth'].value,
-        email: this.empAddForm.controls['email'].value,
-        phone: this.empAddForm.controls['phone_number'].value,
-        address: this.empAddForm.controls['address'].value,
-        imp_notes: this.empAddForm.controls['imp_notes'].value,
-        addar_number: this.empAddForm.controls['addhar_number'].value,
-        pan_number: this.empAddForm.controls['pancard_number'].value,
-        joing_date: this.empAddForm.controls['joing_date'].value,
-        emp_title: this.empAddForm.controls['emp_title'].value,
-        emp_description: this.empAddForm.controls['emp_description'].value,
-        gendar: this.empAddForm.controls['gendar'].value,
-        emp_department: this.empAddForm.controls['emp_department'].value,
-        emp_unique_id: this.empAddForm.controls['emp_unique_id'].value,
         profile: this.imageUpload,
       }
 
@@ -177,24 +146,7 @@ export class AddEmpDocumentComponent implements OnInit {
       console.log(this.empAddForm.value)
       let empAddFormData = {
         emp_id:this.updateValue.emp_id,
-        prefix: this.empAddForm.controls['prefix'].value,
-        first_name: this.empAddForm.controls['first_name'].value,
-        middle_name: this.empAddForm.controls['middle_name'].value,
-        last_name: this.empAddForm.controls['last_name'].value,
-        date_of_birth: this.empAddForm.controls['dateOfbirth'].value,
-        email: this.empAddForm.controls['email'].value,
-        phone: this.empAddForm.controls['phone_number'].value,
-        address: this.empAddForm.controls['address'].value,
-        imp_notes: this.empAddForm.controls['imp_notes'].value,
-        addar_number: this.empAddForm.controls['addhar_number'].value,
-        pan_number: this.empAddForm.controls['pancard_number'].value,
-        joing_date: this.empAddForm.controls['joing_date'].value,
-        emp_title: this.empAddForm.controls['emp_title'].value,
-        emp_description: this.empAddForm.controls['emp_description'].value,
-        gendar: this.empAddForm.controls['gendar'].value,
-        emp_department: this.empAddForm.controls['emp_department'].value,
-        emp_unique_id:this.updateValue.emp_unique_id,
-        profile: this.updateValue.profile,
+        prefix: this.empAddForm.controls['prefix'].value
       }
 
       console.log(empAddFormData)

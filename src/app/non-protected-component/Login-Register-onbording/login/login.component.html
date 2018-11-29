@@ -2,7 +2,7 @@
   <div [formGroup]="loginForm" novalidate class="form_container_wrapper">
     <mat-card>
       <div class="change_company_header">
-        <span class="logo_company_header">Office Management <span class="three_five"> 395</span> </span>
+        <span class="logo_company_header">Span <span class="three_five"> idea</span> </span>
       </div>
       <div class="change_company_cantainer">
       <mat-form-field class="form_container">
@@ -14,14 +14,11 @@
       </mat-form-field>
     </div>
     <div  class="change_company_cantainer">
-      
       <div class="form_container_btn_wrapper">
         <button  type="submit" [disabled]="!loginForm.valid"  (click)="onSubmit()"   mat-stroked-button color="primary"> Login </button>
       </div>
       <div class="register_text" routerLinkActive="active" routerLink="/singup"> Create a Your account ? </div>
-   
     </div>
     </mat-card>
-  
   </div>
 </div>

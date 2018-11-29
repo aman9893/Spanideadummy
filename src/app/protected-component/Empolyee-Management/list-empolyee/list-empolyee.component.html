@@ -1,51 +1,47 @@
 <app-emp-management-header></app-emp-management-header>
 <mat-toolbar>
-        <div class="header_searchbar">
-            <div class="search_emp_container">
-                <form>
-                  <input type="text" id="search_bar" [(ngModel)]="term"  name="searchString"  placeholder="Search">
-                  <span class="search_library_bar_icon">
-                    <i class="material-icons">search </i>
-                  </span>
-                </form>
-              </div>
-        </div>
-        <div class="subheader_right">
-          <button (click)="addEmpolyee(data,'save')" mat-stroked-button color="primary">ADD NEW EMPOLYEE</button>
-        </div>
-      </mat-toolbar>
-      <div class="tabel_data">
-        <!-- 
-        <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field> -->
-      
-        <div class="container-fuild task_tabel_wrapper">
-          <table class="table table-hover">
-            <thead class="thead-responsive">
-              <tr>
-                <th> No</th>
-                <th> Prefix</th>
-                <th> First Name</th>
-                <th> Date Of Birth</th>
-                <th> Email</th>
-                <th> Phone</th>
-                <th> Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="emplist_tr" *ngFor="let empData of emplist  |filter:term  let myIndex = index;" 
-              (click)="detailsEmpolyee(empData.emp_id)" >
-                <td>{{myIndex+1}}</td>
-                <td>{{empData.prefix }}</td>
-                <td>{{empData.first_name}}</td>
-                <td>{{empData.date_of_birth | date}}</td>
-                <td>{{empData.email}}</td>
-                <td>{{empData.phone}}</td>
-                <td>{{empData.address}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      
+  <div class="header_searchbar">
+    <div class="search_emp_container">
+      <form>
+        <input type="text" id="search_bar" [(ngModel)]="term" name="searchString" placeholder="Search">
+        <span class="search_library_bar_icon">
+          <i class="material-icons">search </i>
+        </span>
+      </form>
+    </div>
+  </div>
+  <div class="subheader_right">
+    <button (click)="addEmpolyee(data,'save')" mat-stroked-button color="primary">ADD NEW EMPOLYEE</button>
+  </div>
+</mat-toolbar>
+<div class="tabel_data">
+
+
+
+  <div class="container-fuild task_tabel_wrapper">
+    <table class="table table-hover">
+      <thead class="thead-responsive">
+        <tr>
+          <th> No</th>
+          <th> Prefix</th>
+          <th> First Name</th>
+          <th> Date Of Birth</th>
+          <th> Email</th>
+          <th> Phone</th>
+          <th> Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="emplist_tr" *ngFor="let empData of emplist  |filter:term  let myIndex = index;" (click)="detailsEmpolyee(empData.emp_id)">
+          <td>{{myIndex+1}}</td>
+          <td>{{empData.prefix }}</td>
+          <td>{{empData.first_name}}</td>
+          <td>{{empData.date_of_birth | date}}</td>
+          <td>{{empData.email}}</td>
+          <td>{{empData.phone}}</td>
+          <td>{{empData.address}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

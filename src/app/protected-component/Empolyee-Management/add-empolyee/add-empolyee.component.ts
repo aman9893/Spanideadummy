@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { NgForm, FormGroup, FormArray, FormsModule, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef, MatSnackBar, MAT_DIALOG_DATA, MatAutocompleteSelectedEvent, MatAutocompleteModule, MatAutocompleteTrigger } from '@angular/material';
 import { DataService } from 'src/app/service/data.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-empolyee',
@@ -9,10 +10,11 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./add-empolyee.component.css']
 })
 export class AddEmpolyeeComponent implements OnInit {
+  cookieValue;
 
 
   constructor(
-    private formBuilder: FormBuilder, private dataService: DataService,
+    private formBuilder: FormBuilder, private dataService: DataService,private cookieService:CookieService,
     public dialogRef: MatDialogRef<AddEmpolyeeComponent>,
     @Inject(MAT_DIALOG_DATA) public update_data: any, public snackBar: MatSnackBar) { }
 
@@ -24,8 +26,13 @@ export class AddEmpolyeeComponent implements OnInit {
   updateFlag = true;
   imageUpload = '';
   filesToUpload: Array<File> = [];
-
+  cookiesData;
   ngOnInit() {
+
+    this.cookieValue = this.cookieService.get('usersinfo');
+    this.cookiesData = JSON.parse(this.cookieValue);
+    console.log(this.cookiesData.id);
+
     console.log(this.update_data.flag)
     if (this.update_data.flag === 'save') {
       this.updateFlag = false;
@@ -169,6 +176,9 @@ export class AddEmpolyeeComponent implements OnInit {
       console.log(this.empAddForm.value)
       console.log(this.imageUpload)
       let empAddFormData = {
+
+        user_id:this.cookiesData.id,
+
         prefix: this.empAddForm.controls['prefix'].value,
         first_name: this.empAddForm.controls['first_name'].value,
         middle_name: this.empAddForm.controls['middle_name'].value,
@@ -212,6 +222,8 @@ export class AddEmpolyeeComponent implements OnInit {
     if (this.empAddForm.valid) {
       console.log(this.empAddForm.value)
       let empAddFormData = {
+
+        user_id:1,
         emp_id:this.updateValue.emp_id,
         prefix: this.empAddForm.controls['prefix'].value,
         first_name: this.empAddForm.controls['first_name'].value,

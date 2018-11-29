@@ -80,7 +80,7 @@ closeDialog(data) {
       this.authService2.sendToken(this.userpassword)
     }
    
-    this.myRoute.navigate(['/admin']);
+    this.myRoute.navigate(['/login']);
     this.openSnackBar(data.message, 'Dissmiss')
 
   }

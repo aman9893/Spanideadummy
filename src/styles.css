@@ -42,8 +42,10 @@ body{
     width: 31%;
   }
   .form_container_btn_wrapper{
-    text-align: center;
-  }
+    text-align: right;
+    margin: 28px;
+    padding-bottom: 33px;
+}
   .change_company_header {
     text-align: center;
     padding: 18px;
@@ -521,7 +523,7 @@ button.mat-menu-item{
   font-weight: bold;
 }
 .three_five {
-  color: #54ff6af5 !important;
+  color:#343a40 !important;
 }
 .mat-card{
   padding: 0px !important;

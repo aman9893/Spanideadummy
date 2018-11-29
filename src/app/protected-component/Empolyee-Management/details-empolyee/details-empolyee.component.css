@@ -184,3 +184,8 @@
     cursor: pointer;
     outline: none;
 }
+
+.dummy_image{
+    margin-left: 71px;
+    margin-top: 9px;
+}

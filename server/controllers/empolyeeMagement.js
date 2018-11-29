@@ -1,6 +1,7 @@
 var connection = require('./../config');
 
 module.exports.empolyeeInfoList = function (req, res) {
+  
   connection.query('select * from empolyee_info', (err, result) => {
     if (err) throw err;
     console.log(result)
@@ -12,6 +13,7 @@ module.exports.addEmpolyee = function (req, res) {
 
   console.log(req.body)
   var users = {
+    "user_id":req.body.user_id,
     "prefix": req.body.prefix,
     "first_name": req.body.first_name,
     "middle_name": req.body.middle_name,
@@ -56,8 +58,6 @@ module.exports.addEmpolyee = function (req, res) {
       })
 
       connection.query('SELECT * FROM empolyee_info WHERE emp_id = ?', [id], function (error, results, fields) {
-        // console.log(fields)
-        // console.log(error)
         res.json({
           status: true,
           data: results,

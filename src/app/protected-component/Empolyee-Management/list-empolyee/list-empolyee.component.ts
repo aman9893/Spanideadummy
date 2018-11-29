@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
 import { MyauthService } from 'src/app/Auth-service/authservice';
 import { AddEmpolyeeComponent } from '../add-empolyee/add-empolyee.component';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-list-empolyee',
   templateUrl: './list-empolyee.component.html',
@@ -13,14 +14,24 @@ import { AddEmpolyeeComponent } from '../add-empolyee/add-empolyee.component';
 })
 export class ListEmpolyeeComponent implements OnInit {
   public env = env;
-  emplist;
-  constructor(public dialog: MatDialog, public snackBar: MatSnackBar,
+  emplist=[];
+  cookiesData
+  nativeWindow: Window;
+  cookieValue;
+  constructor(public dialog: MatDialog, public snackBar: MatSnackBar,private cookieService:CookieService,
     public router: Router,
-    public dataService: DataService, private authService: MyauthService) { }
+    public dataService: DataService, private authService: MyauthService) { 
+    }
 
   ngOnInit() {
     this.getEmplist()
+    this.cookieValue = this.cookieService.get('usersinfo');
+    this.cookiesData = JSON.parse(this.cookieValue);
+    console.log(this.cookiesData.id);
   }
+
+
+
   getEmplist(): void {
     this.dataService.getEmpoyeeInfo()
       .subscribe(
@@ -30,7 +41,17 @@ export class ListEmpolyeeComponent implements OnInit {
 
   getEmpdata(data) {
     console.log(data)
-    this.emplist = data;
+
+    for(let i=0; i<data.length; i++){
+
+      console.log(data[i].user_id)
+
+     if(data[i].user_id === this.cookiesData.id){
+ 
+      this.emplist.push(data[i])
+     }
+    }
+
   }
 
   addEmpolyee(Updatedata, data) {

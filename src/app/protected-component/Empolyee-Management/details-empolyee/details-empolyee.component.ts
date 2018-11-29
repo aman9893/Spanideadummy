@@ -12,11 +12,8 @@ import {
 } from '@angular/material';
 import { DataService } from 'src/app/service/data.service';
 import { DeleteEmpolyeeComponent } from '../delete-empolyee/delete-empolyee.component';
-import { AddDeleteSalaryComponent } from '../Salary/add-delete-salary/add-delete-salary.component';
 import { AddEmpolyeeComponent } from '../add-empolyee/add-empolyee.component';
-import { AddEmpSalaryComponent } from '../Salary/add-emp-salary/add-emp-salary.component';
-import { AddTimelineInfoComponent } from '../Emp-timeline/add-timeline-info/add-timeline-info.component';
-import { AddEmpDocumentComponent } from '../Document/add-emp-document/add-emp-document.component';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-details-empolyee',
   templateUrl: './details-empolyee.component.html',
@@ -25,17 +22,25 @@ import { AddEmpDocumentComponent } from '../Document/add-emp-document/add-emp-do
 export class DetailsEmpolyeeComponent implements OnInit {
   paramsData;
   empData: any;
-  constructor(private route: ActivatedRoute, public dialog: MatDialog,
-    private back_location: Location, public dataService: DataService) { }
+  nativeWindow: Window;
+  cookieValue: any;
+  constructor(private route: ActivatedRoute, public dialog: MatDialog,private cookieService:CookieService,
+    private back_location: Location, public dataService: DataService) {
+
+  this.nativeWindow = dataService.getNativeWindow();
+     }
 
   emplistData;
   Empolyeelist;
   delete_id;
   public env = env;
 
+
   ngOnInit() {
     console.log(this.paramsData)
     this.getPersonDetails()
+    this.cookieValue = this.cookieService.get('usersinfo');
+    console.log(this.cookieValue )
   }
 
   openPhone(){
@@ -51,6 +56,7 @@ export class DetailsEmpolyeeComponent implements OnInit {
         "?attach="+attach;
 
 }
+
 
   getPersonDetails() {
     this.route.params.pipe(
@@ -108,42 +114,9 @@ export class DetailsEmpolyeeComponent implements OnInit {
       }
     });
   }
-
-  addSalaryDialog() {
-    const dialogRef = this.dialog.open(AddEmpSalaryComponent, {
-      width: '550px',
-      data: ''
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-    });
+  sendEmail() {
+    console.log(this.empData)
+    this.nativeWindow.open("https://mail.google.com/mail?view=cm&tf=0(&to=" + this.empData[0].email + "", '_blank');
   }
-
-  addTimelineDialog() {
-
-    const dialogRef = this.dialog.open(AddTimelineInfoComponent, {
-      width: '550px',
-      data: ''
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-    });
-  }
-  
-  addDocumentDialog() {
-    const dialogRef = this.dialog.open(AddEmpDocumentComponent, {
-      width: '550px',
-      data: ''
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-    });
-  }
-  
-
-
 
 }

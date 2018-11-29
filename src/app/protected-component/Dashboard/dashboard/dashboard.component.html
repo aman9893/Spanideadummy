@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <!-- <span class="header_admin_img">
       <img src="../../../assets/images/profile.jpg"> </span> -->
-    <span class="main_header_title"> Office Management 320</span>
+    <span class="main_header_title"> Span Idea System</span>
 
     <span class="example-spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -12,10 +12,6 @@
       <button mat-menu-item>
         <mat-icon>person_outline</mat-icon>
         <span (click)="profile()" routerLink="/Profile"> Profile </span>
-      </button>
-      <button mat-menu-item routerLink="/employee-attendance-list">
-        <mat-icon>person_outline</mat-icon>
-        <span> Employee-Attendance </span>
       </button>
       <button mat-menu-item>
         <mat-icon>power_settings_new</mat-icon>
@@ -28,16 +24,6 @@
 <div class="warrper_dashbord1">
   <div class="container-fluid">
     <div class="row">
-      <mat-card class="wrapper_cards col-md-2">
-        <div class="wrapper_cards_cantainer">
-          <div class="wrapper_cards_header">
-            <div class="wrapper_cards_header">
-              Attendence Management
-            </div>
-          </div>
-          <div routerLink="/admin-live-list" class="btn_details"> Details</div>
-        </div>
-      </mat-card>
       <mat-card class="wrapper_cards  col-md-2">
         <div class="wrapper_cards_cantainer">
           <div class="wrapper_cards_header">
@@ -49,28 +35,6 @@
         </div>
       </mat-card>
 
-      <mat-card class="wrapper_cards col-md-2">
-        <div class="wrapper_cards_cantainer">
-          <div class="wrapper_cards_header">
-            <div class="wrapper_cards_header">
-              Library Management
-            </div>
-          </div>
-          <div routerLink="/library-management" class="btn_details"> Details</div>
-        </div>
-      </mat-card>
-
-      <mat-card class="wrapper_cards  col-md-2">
-        <div class="wrapper_cards_cantainer">
-          <div class="wrapper_cards_header">
-            <div class="wrapper_cards_header">
-              Project <br>
-              <span>Management</span>
-            </div>
-          </div>
-          <div class="btn_details" routerLink="/project-management"> Details</div>
-        </div>
-      </mat-card>
     </div>
   </div>
   <div class="warrper_dashbord3">
@@ -89,243 +53,6 @@
             </div>
           </div>
         </mat-card>
-        <mat-card class="wrapper_cards_box2 col-md-2" id="total_project">
-          <div class="wrapper_cards_box2_cantainer">
-            <div class="wrapper_cards_box2_header">
-              <span>
-                <mat-icon>local_mall</mat-icon>
-              </span>
-              <br>
-              Total Client Project
-              <br>
-              <span>11</span>
-            </div>
-          </div>
-        </mat-card>
-        <mat-card class="wrapper_cards_box2 col-md-2" id="total_Punch">
-          <div class="wrapper_cards_box2_cantainer">
-            <div class="wrapper_cards_box2_header">
-              <span>
-                <mat-icon>list_alt</mat-icon>
-              </span>
-              <br>
-              Total Punch In
-              <br>
-              <span>10</span>
-            </div>
-          </div>
-        </mat-card>
-        <mat-card class="wrapper_cards_box2 col-md-2" id="total_Punchout">
-          <div class="wrapper_cards_box2_cantainer">
-            <div class="wrapper_cards_box2_header">
-              <span>
-                <mat-icon>cast</mat-icon>
-              </span>
-              <br>
-              Total Punch Out
-              <br>
-              <span>5</span>
-            </div>
-          </div>
-        </mat-card>
+
       </div>
     </div>
-
-
-    <div class="container-fluid">
-      <mat-card class="dash_cantainer2">
-        <div class="row">
-          <div class="col-md-5 box_catniner">
-            <div class="box_header">
-              Recently Add Employee
-            </div>
-            <div class="box_subtext">
-              view
-            </div>
-            <div class="recent_people_info">
-              <div class="recent_people_img">
-                A
-              </div>
-              <div class="wrpper_text_title">
-                <div class="recent_people_text">
-                  Aman Jain
-                </div>
-                <div class="recent_people_subtext">
-                  Angular developer
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5 box_catniner">
-            <div class="box_header">
-              Recently Add Project
-            </div>
-            <div class="box_subtext">
-              view
-            </div>
-            <div class="recent_people_info">
-              <div class="recent_people_img">
-                I
-              </div>
-              <div class="wrpper_text_title">
-                <div class="recent_people_text">
-                  Iface Crm
-                </div>
-                <div class="recent_people_subtext">
-                  Allot | <a> amanjain</a> | 12/02/2017
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-card>
-    </div>
-
-    <div class="container-fluid">
-      <mat-card class="dash_cantainer2">
-        <div class="row">
-          <div class="col-md-5 box_catniner">
-            <div class="box_header">
-              Recently Add books
-            </div>
-            <div class="box_subtext">
-              view
-            </div>
-            <div class="recent_people_info">
-              <div class="recent_people_img">
-                A
-              </div>
-              <div class="wrpper_text_title">
-                <div class="recent_people_text">
-                  Angular 6
-                </div>
-                <div class="recent_people_subtext">
-                  jhon carter
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5 box_catniner">
-            <div class="box_header">
-              Recently Add Task
-            </div>
-            <div class="box_subtext">
-              view
-            </div>
-            <div class="recent_people_info">
-              <div class="recent_people_img">
-                T
-              </div>
-              <div class="wrpper_text_title">
-                <div class="recent_people_text">
-                  Work on Crm
-                </div>
-                <div class="recent_people_subtext">
-                  Allot | <a> amanjain</a> | 12/02/2017
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-card>
-    </div>
-    <!-- 
-    <div class="container-fluid">
-      <mat-card class="dash_cantainer3">
-        <div class="row">
-          <div class="box_header_tabel">
-            Employee In Office
-          </div>
-          <div class="header_searchbar">
-          <div class="search_container">
-            <form>
-              <input type="text" (blur)=validate() (input)="eventHandler($event)" id="search_bar" autocomplete="off"
-                placeholder="Search">
-              <span class="search_bar_icon">
-                <i class="material-icons">search </i>
-              </span>
-            </form>
-          </div>
-        </div>
-          <div class="table-responsive">
-            <table class="table table-hover tabel_wrapper_data">
-              <thead>
-                <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td>july@example.com</td>
-                  <td>
-                    <button class="true_status" mat-mini-fab></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </mat-card>
-    </div>
-  </div> -->
